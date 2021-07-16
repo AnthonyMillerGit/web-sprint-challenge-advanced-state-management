@@ -1,11 +1,50 @@
+import {
+    LOAD_SMURFS, 
+    DISPLAY_SMURFS, 
+    MISSING_SMURFS, 
+    ADD_SMURF
+} from '../actions'
 
 export const initialState = {
+    smurfs: [],
+    isLoading: false,
+    error: "",
+    badSubmit: ""
 }
 
-const reducer = ()=>{
+export const reducer = (state=initialState, action) => {
+    switch(action.type) {
+        case(LOAD_SMURFS):
+            return ({
+                ...state,
+                isLoading: true
+            });
+        case(DISPLAY_SMURFS):
+            return ({
+                ...state,
+                smurfs: action.payload,
+                isLoading: false,
+            });
+        case(MISSING_SMURFS):
+            return ({
+                ...state,
+                isLoading: false,
+                error: action.payload
+            });
+        case(ADD_SMURF):
+            return ({
+                ...state,
+                smurfs: [
+                    ...state.smurfs,
+                    action.payload
+                ]
+            });
+        default:
+            return state;
+    }
 }
 
-export default reducer;
+// export default reducer;
 
 //Task List:
 //1. Adds the following state values into the initialState:
