@@ -3,6 +3,7 @@ export const LOAD_SMURFS = "LOAD_SMURFS"
 export const DISPLAY_SMURFS = "DISPLAY_SMURFS"
 export const MISSING_SMURFS = "MISSING_SMURFS"
 export const ADD_SMURF = "ADD_SMURF"
+export const ERROR_CODE = "ERROR_CODE"
 
 export const fetchSmurfs = () => {
     return dispatch => {
@@ -32,7 +33,12 @@ export const addSmurf = smurf => {
     }
 }
 
-
+export const errorCode = error => {
+    return{
+        type: ERROR_CODE,
+        payload: error
+    }
+}
 
 //Task List:
 //1. Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retreive smurfs from our server, saves the result of that call to our state and shows an error if one is made.
