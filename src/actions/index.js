@@ -1,5 +1,8 @@
 import axios from 'axios';
-
+export const LOAD_SMURFS = "LOAD_SMURFS"
+export const DISPLAY_SMURFS = "DISPLAY_SMURFS"
+export const MISSING_SMURFS = "MISSING_SMURFS"
+export const ADD_SMURF = "ADD_SMURF"
 
 export const fetchSmurfs = () => {
     return dispatch => {
